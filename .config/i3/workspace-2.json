@@ -1,0 +1,35 @@
+{
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splith",
+    "percent": null,
+    "rect": {
+       "height": 1050,
+       "width": 1331,
+       "x": 2157,
+       "y": 29
+    },
+    "type": "floating_con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 3,
+            "floating": "user_on",
+            "geometry": {
+               "height": 540,
+               "width": 960,
+               "x": 2400,
+               "y": 270
+            },
+            "name": "Streamlink Twitch GUI",
+            "percent": 1,
+            "swallows": [
+               {
+                "class": "^streamlink\\-twitch\\-gui$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+

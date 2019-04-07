@@ -1,0 +1,41 @@
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1028,
+       "width": 749,
+       "x": 3852,
+       "y": 40
+    },
+    "name": "#giantwaffle [W] [46|2,395|4h 59m] [Followers] - Cute Chat Only | @GiantWaffle (Apex Legends) - Chatty",
+    "percent": 0.4,
+    "swallows": [
+       {
+          "class": "^chatty\\-Chatty$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1028,
+       "width": 1010,
+       "x": 4750,
+       "y": 40
+    },
+    "name": "Steam",
+    "percent": 0.6,
+    "swallows": [
+       {
+          "class": "^Steam$",
+          "instance": "^Steam$"
+       }
+    ],
+    "type": "con"
+}
+

@@ -1,0 +1,69 @@
+! Colour scheme
+*background:#000000
+*foreground:#ffffff
+! insignificato - xcolors.net
+!Black
+*color0:           #3d3e3d
+*color8:           #5a5b5c
+!Red
+*color1:           #755a5b
+*color9:           #a37679
+!Green
+*color2:           #68755a
+*color10:          #87a376
+!Yellow
+*color3:           #756e5a
+*color11:          #a39b76
+!Blue
+*color4:           #5b6976
+*color12:          #758ba3
+!Magenta
+*color5:           #755b76
+*color13:          #9f76a3
+!Cyan
+*color6:           #5b7674
+*color14:          #75a3a1
+!White
+*color7:           #808080
+*color15:          #aeafb0
+
+! URXvt terminal settings
+
+! Fonts and Transparency
+xft.dpi: 96
+xft.antialias: true
+xft.rgba: rgb
+xft.hinting: true
+xft.hintstyle: hintslight
+
+URxvt*font: xft:Hack:size=13
+!URxvt*font: xft:RobotoMono:size=13
+URxvt.letterSpace: -1
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0200/c800
+
+
+! Scroll bar options
+URxvt*scrollBar_right: true
+URxvt*scrollstyle: plain    
+URxvt*scrollColor: #1f222d
+URxvt*saveLines: 8196
+
+! General Options
+URxvt*cursorBlink: true
+!URxvt*loginShell: true
+
+! rofi
+! Use extended color schem
+rofi.color-enabled: true
+rofi.show-icons: true
+! Color scheme for normal row
+rofi.color-normal: argb:00000000, #D8DEE9, argb:00000000, #FAC863, #000000
+! ! Color scheme for urgent row
+rofi.color-urgent: argb:00000000, #F99157, argb:00000000, #F99157, #000000
+! ! Color scheme for active row
+rofi.color-active: argb:00000000, #000000, argb:00000000, #000000, #000000
+! ! Color scheme window
+rofi.color-window: argb:ee222222, #FAC863, #FAC863
+! ! Separator style (none, dash, solid)
+rofi.separator-style: none

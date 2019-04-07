@@ -1,0 +1,43 @@
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 484,
+       "width": 811,
+       "x": 0,
+       "y": 0
+    },
+    "name": "ranger",
+    "percent": 0.5,
+    "swallows": [
+       {
+       "class": "^Terminator$",
+       "instance": "^terminator$",
+       "window_role": "^ranger$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 995,
+       "width": 924,
+       "x": 3865,
+       "y": 54
+    },
+    "name": "Deluge",
+    "percent": 0.5,
+    "swallows": [
+       {
+       "class": "^Deluge$",
+       "instance": "^deluge$"
+       }
+    ],
+    "type": "con"
+}
+

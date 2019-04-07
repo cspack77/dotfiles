@@ -1,0 +1,286 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+background = #222
+background-alt = #444
+foreground = #dfdfdf
+foreground-alt = #555
+
+; colors from .Xresources
+black = ${xrdb:color0}
+black-bold = ${xrdb:color8}
+red = ${xrdb:color1}
+red-bold = ${xrdb:color9}
+green = ${xrdb:color2}
+green-bold = ${xrdb:color10}
+yellow = ${xrdb:color3}
+yellow-bold = ${xrdb:color11}
+blue = ${xrdb:color4}
+blue-bold = ${xrdb:color12}
+magenta = ${xrdb:color5}
+magenta-bold = ${xrdb:color13}
+cyan = ${xrdb:color6}
+cyan-bold = ${xrdb:color14}
+white = ${xrdb:color7}
+white-bold = ${xrdb:color15}
+
+azure = #f0ffff
+
+[bar/mybar]
+monitor = ${env:MONITOR:DP-0}
+width = 100%
+height = 28
+offset-x = 0
+offset-y = 0
+radius = 0.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+;border-color = #00000000
+
+padding-left = 2
+padding-right = 2
+
+module-margin-left = 2
+module-margin-right = 2
+
+;font-0 = fixed:pixelsize=10;1
+;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-0 = Noto Sans:size=13;0
+font-1 = FontAwesome:style=Regular;0
+font-2 = Segoe UI Emoji:style=Regular;0
+font-3 = Arial:style=Regular;0
+font-4 = Tahoma:style=Regular;0
+font-5 = DejaVu Sans:style=Regular;0
+font-6 = MS Gothic:style=Regular;0
+
+modules-left = i3 swapfocus mediaplayer
+modules-center = xwindow
+modules-right = updates volume-laptop volume weather date
+#modules-right = nvidia_info updates volume weather date
+
+tray-position = ${env:SYSTRAY}
+tray-padding = 2
+tray-scale = 1.0
+;tray-transparent = true
+;tray-background = #0063ff
+
+;wm-restack = i3
+;override-redirect = true
+
+scroll-up = i3wm-wsprev
+scroll-down = i3wm-wsnext
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/mybar2]
+inherit = bar/mybar
+modules-right = volume-laptop date
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:60:...%
+format-foreground = ${colors.azure}
+
+[module/date]
+type = custom/script
+interval = 5
+exec = echo "  `date '+%a %b %d'`    `date '+%I:%M %p'`"
+label = %output%
+format-foreground = ${colors.blue-bold}
+click-left = ~/bin/orage.sh &
+
+[module/volume-laptop]
+type = custom/script
+exec = pa-ctl.py -c status
+interval = 5
+label = %output%
+format-foreground = ${colors.cyan-bold}
+click-right = /usr/bin/pavucontrol &
+
+[module/volume]
+type = custom/script
+exec = ~/.config/polybar/volume-control.sh
+interval = 5
+label = %output%
+format-foreground = ${colors.yellow-bold}
+label-volume =  %percentage%%
+click-left = ~/.config/polybar/volume-control.sh toggle
+click-right = /usr/bin/pavucontrol &
+scroll-up = ~/.config/polybar/volume-control.sh up 5
+scroll-down = ~/.config/polybar/volume-control.sh down 5
+
+[module/updates]
+type = custom/script
+exec = ~/.config/polybar/updates.sh
+interval = 300
+label = %output%
+format-foreground = ${colors.red}
+
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/weather.sh
+interval = 1800
+label = %output%
+format-foreground = ${colors.green}
+
+[module/mediaplayer]
+type = custom/script
+exec = ~/.config/polybar/mediaplayer.sh
+interval = 5
+label = %output%
+format-foreground = ${colors.cyan-bold}
+click-left = /usr/bin/mpc -q prev
+click-middle = /usr/bin/mpc -q toggle
+click-right = /usr/bin/mpc -q next
+scroll-up = /usr/bin/mpc -q volume +5
+scroll-down = /usr/bin/mpc -q volume -5
+
+[module/swapfocus]
+type=custom/text
+content = ""
+click-left = i3-msg "focus left"
+click-right = i3-msg "focus right"
+
+[module/nvidia_info]
+type = custom/script
+tail = true
+exec-if = nvidia-smi
+exec = nvidia-smi --loop=1 --query-gpu=temperature.gpu,utilization.gpu,utilization.memory --format=csv,noheader,nounits | sed -ur 's|([[:digit:]]+)[^[:digit:]]*([[:digit:]]+)[^[:digit:]]*([[:digit:]]+)|GPU \2% \3% \1°|g'
+
+[module/i3]
+type = internal/i3
+
+; This will split the workspace name on ':'
+; Default: false
+;strip-wsnumbers = true
+
+; Sort the workspaces by index instead of the default
+; sorting that groups the workspaces by output
+; Default: false
+index-sort = true
+
+; Create click handler used to focus workspace
+; Default: true
+;enable-click = false
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+; disable if using scroll-{up,down} at bar level
+enable-scroll = false
+
+; Wrap around when reaching the first/last workspace
+; Default: true
+wrapping-scroll = false
+
+; Set the scroll cycle direction 
+; Default: true
+reverse-scroll = false
+
+; Use fuzzy (partial) matching on labels when assigning 
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces 
+; containing 'code' in the label
+; Default: false
+;fuzzy-match = true
+
+; Only show workspaces on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = true
+
+; ws-icon-[0-9]+ = label;icon
+; NOTE: The label needs to match the name of the i3 workspace
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-default = 
+
+; Available tags:
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+
+; i3 binding mode
+label-mode = %mode%
+label-mode-padding = 4
+label-mode-foreground = ${colors.red-bold}
+
+; focused = Active workspace on focused monitor
+; Available tokens:
+;   %name% %icon% %index% %output%
+; Default: %icon%  %name%
+label-focused = %icon%
+;label-focused-background = #3f3f3f
+;label-focused-foreground = ${colors.yellow-bold}
+label-focused-background = ${colors.black}
+label-focused-underline = ${colors.yellow-bold}
+label-focused-padding = 4
+
+; unfocused = Inactive workspace on any monitor
+; Available tokens:
+;   %name% %icon% %index%
+; Default: %icon%  %name%
+label-unfocused = %icon%
+label-unfocused-padding = 4
+;label-unfocused-foreground = ${colors.foreground-alt}
+label-unfocused-foreground = ${colors.white}
+
+; visible = Active workspace on unfocused monitor
+; Available tokens:
+;   %name% %icon% %index%
+; Default: %icon%  %name%
+label-visible = %icon%
+label-visible-background = ${self.label-focused-background}
+;label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+; Available tokens:
+;   %name% %icon% %index%
+; Default: %icon%  %name%
+label-urgent = %icon%
+label-urgent-foreground = ${colors.red}
+label-urgent-background = ${self.label-focused-background}
+label-urgent-padding = 4
+
+; Separator in between workspaces
+;label-separator = |
+;label-separator-padding = 2
+;label-separator-foreground = #ffb52a
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini

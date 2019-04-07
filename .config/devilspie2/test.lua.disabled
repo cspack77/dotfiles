@@ -1,0 +1,14 @@
+gwc=get_window_class()
+gwt=get_window_type()
+gan=get_application_name()
+gcin=get_class_instance_name()
+
+debug_print("Window name: " .. get_window_name());
+debug_print("Application name: " .. gan);
+debug_print("Window type: " .. gwt);
+debug_print("Window role: " .. get_window_role());
+debug_print("Window class: " .. gwc);
+debug_print("Class instance: " .. gcin);
+x, y, width, height = get_window_geometry();
+debug_print("X: "..x..", Y: "..y..", width: "..width..", height: "..height);
+debug_print("--------------------------------------------------")

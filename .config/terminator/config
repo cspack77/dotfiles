@@ -1,0 +1,84 @@
+[global_config]
+  broadcast_default = off
+  title_font = Segoe UI 9
+[keybindings]
+  broadcast_all = None
+  broadcast_group = None
+  go_down = <Alt>j
+  go_left = <Alt>h
+  go_right = <Alt>l
+  go_up = <Alt>k
+  group_all = None
+  group_tab = None
+  help = None
+  layout_launcher = None
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+  [[split]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 75aae06e-43a0-48a0-8709-7d84ce374588
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 1945:54
+      size = 1864, 995
+      title = ted@desktop: ~
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 930
+      ratio = 0.500268961807
+      type = HPaned
+    [[[terminal2]]]
+      order = 0
+      parent = child1
+      profile = default
+      type = Terminal
+      uuid = 75aae06e-43a0-48a0-8709-7d84ce374588
+    [[[terminal3]]]
+      order = 1
+      parent = child1
+      profile = default
+      type = Terminal
+      uuid = 1e3671be-b78e-43e6-9fb1-566d71a2f8da
+[plugins]
+[profiles]
+  [[default]]
+    audible_bell = True
+    background_darkness = 0.85
+    background_type = transparent
+    copy_on_selection = True
+    cursor_color = "#ffffff"
+    cursor_color_fg = False
+    font = Hack 13
+    foreground_color = "#ffffff"
+    icon_bell = False
+    palette = "#3d3e3d:#755a5b:#68755a:#756e5a:#5b6976:#755b76:#5b7674:#808080:#5a5b5c:#a37679:#87a376:#a39b76:#758ba3:#9f76a3:#75a3a1:#aeafb0"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    urgent_bell = True
+    use_system_font = False
+  [[weechat]]
+    audible_bell = True
+    background_darkness = 0.8
+    copy_on_selection = True
+    cursor_color = "#ffffff"
+    font = Inconsolata-g Medium 14
+    foreground_color = "#ffffff"
+    icon_bell = False
+    palette = "#3d3e3d:#755a5b:#68755a:#756e5a:#5b6976:#755b76:#5b7674:#808080:#5a5b5c:#a37679:#87a376:#a39b76:#758ba3:#9f76a3:#75a3a1:#aeafb0"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    urgent_bell = True
+    use_system_font = False
