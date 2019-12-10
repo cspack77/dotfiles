@@ -2,6 +2,7 @@
 
 # Check for pacman and AUR updates
 cup () {
+  clear
   checkupdates
   #AURUPDATES=$(aur vercmp -d custom)
   AURUPDATES=$(aur repo -u)
@@ -36,7 +37,8 @@ aurdown () {
   else
     cd ~/.cache/aurutils/sync
     #auracle download "$@"
-    aur fetch "$@"
+    #aur fetch "$@"
+    repoctl down "$@"
     cd "$@"
   fi
 }
@@ -47,8 +49,9 @@ aurremove () {
     printf "\nUsage: aurremove <AUR package>\n\n"
     return 1
   else
-    repo-remove /var/cache/pacman/custom/custom.db.tar "$@"
-    sudo pacsync custom
+    #repo-remove /var/cache/pacman/custom/custom.db.tar "$@"
+    #sudo pacsync custom
+    repoctl remove "$@"
   fi
 }
 

@@ -68,7 +68,8 @@ bindsym --whole-window $mod+button2 kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id rofi.sh
-bindsym $mod+t exec --no-startup-id watch-tv.sh
+bindsym $mod+g exec --no-startup-id watch-tv.sh
+bindsym $mod+t exec --no-startup-id vpn.py
 bindsym $mod+b exec --no-startup-id mlb.sh
 
 # change focus
@@ -158,7 +159,7 @@ set $workspace12 12
 #set $output2 "DVI-I-1"
 set $output1 "DP-0"
 set $output2 "DVI-D-0"
-set $output3 "HDMI-0"
+#set $output3 "HDMI-0"
 
 # assign workspaces to outputs
 workspace $workspace1 output $output1
@@ -170,7 +171,7 @@ workspace $workspace6 output $output2
 workspace $workspace7 output $output2
 workspace $workspace8 output $output2
 workspace $workspace9 output $output2
-workspace $workspace10 output $output3
+workspace $workspace10 output $output2
 workspace $workspace11 output $output2
 workspace $workspace12 output $output2
 
@@ -199,6 +200,8 @@ bindsym $mod+Shift+7 move container to workspace $workspace7; workspace $workspa
 bindsym $mod+Shift+8 move container to workspace $workspace8; workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9; workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10; workspace $workspace10
+bindsym $mod+Control+Shift+1 move container to workspace $workspace11; workspace $workspace11
+bindsym $mod+Control+Shift+2 move container to workspace $workspace12; workspace $workspace12
 
 # toggle workspace
 workspace_auto_back_and_forth yes
@@ -208,7 +211,7 @@ bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
 # toggle output
-bindsym $mod+F10 focus output $output3
+#bindsym $mod+F10 focus output $output3
 bindsym $mod+F11 focus output $output1
 bindsym $mod+F12 focus output $output2
 
@@ -292,12 +295,12 @@ bindsym $mod+r mode "resize"
 set $sysmenu "system:  [P]oweroff  re[B]oot  [S]uspend  [M]onitor off [L]ock  logou[T] "
 bindsym $mod+Shift+Return      mode $sysmenu
 mode $sysmenu {
-    bindsym p         exec shutdown -P now
-    bindsym b         exec shutdown -r now
+    bindsym p         exec --no-startup-id close-all-windows.sh && shutdown -P now
+    bindsym b         exec --no-startup-id close-all-windows.sh && shutdown -r now
     bindsym s         exec systemctl suspend, mode "default"
     bindsym m         exec sleep 1 && xset dpms force off, mode "default"
     bindsym l         exec i3lock.sh, mode "default"
-    bindsym t         exec --no-startup-id i3-msg exit, mode "default"
+    bindsym t         exec --no-startup-id close-all-windows.sh && i3-msg exit, mode "default"
     bindsym Return    mode "default"
     bindsym Escape    mode "default"
 }
@@ -327,20 +330,20 @@ bindsym XF86AudioStop exec --no-startup-id mpc -q stop
 
 #assign [class="Conky"] $workspace1
 #assign [class="Google-chrome"] $workspace1
-#assign [instance="Firefox"] $workspace1
+assign [class="firefox"] $workspace1
 #assign [title="Streamlink Twitch GUI"] $workspace2
 #assign [class="Thunderbird"] $workspace3
 #assign [class="chatty-Chatty"] $workspace6
 #assign [class="Hexchat"] $workspace6
 assign [class="Kodi"] $workspace10
-assign [class="lutris"] $workspace5
+assign [class="Lutris"] $workspace5
 assign [class="Steam"] $workspace6
 
 for_window [title="Streamlink Twitch GUI"] floating enable
 
 for_window [class="Google-chrome"] floating enable
 for_window [class="Chromium"] floating enable
-for_window [instance="Firefox"] floating enable
+for_window [class="firefox"] floating enable
 for_window [class="Thunderbird"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="vlc"] floating enable
@@ -368,7 +371,6 @@ for_window [instance="epicgameslauncher.exe"] floating enable
 for_window [class="Conky"] border none
 
 #exec --no-startup-id xrdb -merge ~/.Xdefaults
-exec --no-startup-id compton --config ~/.config/compton.conf -b
 #exec_always --no-startup-id feh --bg-scale ~/Pictures/noisy_arch_linux_by_cisoun-d5zgya1.jpg
 #exec_always --no-startup-id feh --bg-scale ~/Pictures/1989842-arch-linux-dragon.jpg
 #exec_always --no-startup-id feh --bg-scale ~/Pictures/'ArchLinux - Leather.jpg'
@@ -377,11 +379,13 @@ exec --no-startup-id compton --config ~/.config/compton.conf -b
 #exec_always --no-startup-id feh --bg-scale ~/Pictures/fog_trees_forest_thicket_84863_1920x1080.jpg
 #exec_always --no-startup-id feh --bg-scale ~/Pictures/grass_green_drops_dark_4297_1920x1200.jpg
 #exec_always --no-startup-id feh --bg-scale ~/Pictures/train_road_smoke_79239_1920x1080.jpg
-exec_always --no-startup-id feh --bg-scale ~/Pictures/04040_lightningoverthegrandcanyon_1920x1080.jpg
+#exec_always --no-startup-id feh --bg-scale ~/Pictures/04040_lightningoverthegrandcanyon_1920x1080.jpg
 #exec_always --no-startup-id feh --bg-scale ~/Pictures/04089_desertstorm_1920x1080.jpg
 #exec_always --no-startup-id feh --bg-scale ~/Pictures/04117_clowneverywhere_1920x1080.jpg
 #exec_always --no-startup-id feh --bg-scale ~/Pictures/waterfall_grass_dark_nature_92752_1920x1080.jpg
 
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+#exec --no-startup-id compton --config ~/.config/compton.conf -b
+exec --no-startup-id ~/.config/wpg/wp_init.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh 2>&1 > /tmp/polybar.log
 exec --no-startup-id i3-load-startup-apps.sh
 exec --no-startup-id xmodmap.sh

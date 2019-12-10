@@ -4,16 +4,16 @@
     "layout": "splith",
     "percent": null,
     "rect": {
-       "height": 1050,
-       "width": 1331,
-       "x": 2157,
-       "y": 29
+       "height": 1048,
+       "width": 1329,
+       "x": 237,
+       "y": 27
     },
     "type": "floating_con",
     "nodes": [
         {
             "border": "pixel",
-            "current_border_width": 3,
+            "current_border_width": 2,
             "floating": "user_on",
             "geometry": {
                "height": 540,
@@ -25,7 +25,7 @@
             "percent": 1,
             "swallows": [
                {
-                "class": "^streamlink\\-twitch\\-gui$"
+               "class": "^streamlink\\-twitch\\-gui$"
                }
             ],
             "type": "con"

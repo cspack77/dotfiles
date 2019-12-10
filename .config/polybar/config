@@ -14,22 +14,22 @@ foreground = #dfdfdf
 foreground-alt = #555
 
 ; colors from .Xresources
-black = ${xrdb:color0}
-black-bold = ${xrdb:color8}
-red = ${xrdb:color1}
-red-bold = ${xrdb:color9}
-green = ${xrdb:color2}
-green-bold = ${xrdb:color10}
-yellow = ${xrdb:color3}
-yellow-bold = ${xrdb:color11}
-blue = ${xrdb:color4}
-blue-bold = ${xrdb:color12}
-magenta = ${xrdb:color5}
-magenta-bold = ${xrdb:color13}
-cyan = ${xrdb:color6}
-cyan-bold = ${xrdb:color14}
-white = ${xrdb:color7}
-white-bold = ${xrdb:color15}
+black = ${xrdb:color0:#070C0D}
+black-bold = ${xrdb:color8:#172a2e}
+red = ${xrdb:color1:#916A36}
+red-bold = ${xrdb:color9:#c98b39}
+green = ${xrdb:color2:#6E8948}
+green-bold = ${xrdb:color10:#91bf50}
+yellow = ${xrdb:color3:#A89740}
+yellow-bold = ${xrdb:color11:#e9ce44}
+blue = ${xrdb:color4:#6D7D82}
+blue-bold = ${xrdb:color12:#7eaab8}
+magenta = ${xrdb:color5:#58605C}
+magenta-bold = ${xrdb:color13:#668877}
+cyan = ${xrdb:color6:#768988}
+cyan-bold = ${xrdb:color14:#88c2bf}
+white = ${xrdb:color7:#c3cac6}
+white-bold = ${xrdb:color15:#fafffe}
 
 azure = #f0ffff
 
@@ -69,7 +69,7 @@ font-6 = MS Gothic:style=Regular;0
 
 modules-left = i3 swapfocus mediaplayer
 modules-center = xwindow
-modules-right = updates volume-laptop volume weather date
+modules-right = updates volume-laptop pavolume weather date
 #modules-right = nvidia_info updates volume weather date
 
 tray-position = ${env:SYSTRAY}
@@ -123,6 +123,21 @@ click-left = ~/.config/polybar/volume-control.sh toggle
 click-right = /usr/bin/pavucontrol &
 scroll-up = ~/.config/polybar/volume-control.sh up 5
 scroll-down = ~/.config/polybar/volume-control.sh down 5
+
+[module/pavolume]
+type = custom/script
+tail = true
+label=%output%
+#format-underline = ${colors.blue}
+
+exec = ~/.config/polybar/pavolume.sh --listen
+click-right = /usr/bin/pavucontrol &
+click-left = ~/.config/polybar/pavolume.sh --togmute
+click-middle = ~/.config/polybar/pavolume.sh --change
+scroll-up = ~/.config/polybar/pavolume.sh --up
+scroll-down = ~/.config/polybar/pavolume.sh --down
+label-padding = 2
+label-foreground = ${colors.yellow-bold}
 
 [module/updates]
 type = custom/script
@@ -208,7 +223,8 @@ pin-workspaces = true
 
 ; ws-icon-[0-9]+ = label;icon
 ; NOTE: The label needs to match the name of the i3 workspace
-ws-icon-0 = 1;
+;ws-icon-0 = 1;
+ws-icon-0 = 1;
 ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3 = 4;

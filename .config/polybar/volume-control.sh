@@ -1,5 +1,7 @@
 #!/bin/bash
 
+MUTED_COLOR="$(xrdb -query |grep color9: | awk '{print $2}')"
+
 get_active_sink() {
     local active_sync=$(pacmd list-sinks |grep "* index" |awk '{print $3}')
     echo $active_sync
@@ -53,7 +55,7 @@ output_message() {
     local color="%{F-}"
     if is_muted; then
         icon=""
-        color="%{F#755a5b}"
+        color="%{F${MUTED_COLOR}}"
     fi 
     echo "${color}${icon} ${volume}%{F-}"
 }

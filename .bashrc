@@ -126,6 +126,8 @@ if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
 
+. /home/ted/bin/bash-prompt.sh
+
 set -o vi
 VISUAL="vi"; export VISUAL
 PROMPT_DIRTRIM=3; export PROMPT_DIRTRIM
@@ -134,5 +136,6 @@ CHROOT=/var/lib/aurbuild/x86_64; export CHROOT
 AURSRC=~/.cache/aurutils/sync; export AURSRC
 
 #Looking Glass ivshmem device
-touch /dev/shm/looking-glass
+sudo touch /dev/shm/looking-glass
+sudo chown ted:ted /dev/shm/looking-glass
 chmod 660 /dev/shm/looking-glass

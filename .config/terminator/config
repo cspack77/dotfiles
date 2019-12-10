@@ -62,7 +62,7 @@
     font = Hack 13
     foreground_color = "#ffffff"
     icon_bell = False
-    palette = "#3d3e3d:#755a5b:#68755a:#756e5a:#5b6976:#755b76:#5b7674:#808080:#5a5b5c:#a37679:#87a376:#a39b76:#758ba3:#9f76a3:#75a3a1:#aeafb0"
+    palette = "#070C0D:#916A36:#6E8948:#A89740:#6D7D82:#58605C:#768988:#c3cac6:#172a2e:#c98b39:#91bf50:#e9ce44:#7eaab8:#668877:#88c2bf:#fafffe"
     scrollback_infinite = True
     scrollbar_position = hidden
     show_titlebar = False
@@ -76,7 +76,7 @@
     font = Inconsolata-g Medium 14
     foreground_color = "#ffffff"
     icon_bell = False
-    palette = "#3d3e3d:#755a5b:#68755a:#756e5a:#5b6976:#755b76:#5b7674:#808080:#5a5b5c:#a37679:#87a376:#a39b76:#758ba3:#9f76a3:#75a3a1:#aeafb0"
+    palette = "#070C0D:#916A36:#6E8948:#A89740:#6D7D82:#58605C:#768988:#c3cac6:#172a2e:#c98b39:#91bf50:#e9ce44:#7eaab8:#668877:#88c2bf:#fafffe"
     scrollback_infinite = True
     scrollbar_position = hidden
     show_titlebar = False

@@ -99,8 +99,7 @@ configuration {
 #inputbar {
     color: @lightgreen;
     padding: 11px;
-    //background-color: @tlightblack;
-    background-color: @lightblack;
+    background-color: @tlightblack;
     border: 2px 2px 2px 2px;
     border-radius:  15px 15px 0px 0px;
     border-color: @foreground;
@@ -115,8 +114,7 @@ configuration {
     border-radius: 0px 0px 15px 15px;
     border-color: @foreground;
     border: 0px 2px 2px 2px;
-    //background-color: #1c1c1ccc;
-    background-color: @dark;
+    background-color: #1c1c1ccc;
     dynamic: false;
     lines: 10;
 }

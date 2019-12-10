@@ -34,6 +34,7 @@ conky.config = {
 	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
 
 	alignment = 'top_right',
+    xinerama_head = 1,
     gap_x = 1930,
 --	gap_x = 10,
 	gap_y = 60,
@@ -50,10 +51,10 @@ conky.config = {
 
 	default_color = '#cccccc',
 
-	color0 = 'white',
-	color1 = '#758ba3',   -- Blue
-	color2 = '#a39b76',   -- Yellow
-    color3 = '#755a5b',   -- Red
+	color0 = '#c3cac6',   -- White
+	color1 = '#6D7D82',   -- Blue
+	color2 = '#A89740',   -- Yellow
+    color3 = '#916A36',   -- Red
 
 };
 
@@ -66,15 +67,15 @@ ${color0}${font ConkyColorsLogos:size=16}a${font}${color}${goto 32}${voffset -8}
 ${goto 32}Uptime: ${alignr}${color1}${uptime}${color}
 # |--CPU
 ${voffset 12}${offset 2}${color0}${font Poky:size=14}P${font}${offset -19}${voffset 9}${offset 1}${cpubar cpu0 4,18}${color}${voffset -28}
-#${goto 32}CPU: ${font Ubuntu:style=Bold:size=8}${color1}${cpu cpu0}%${color}${font} ${alignr}${color1}${cpugraph cpu0 12,60 9f76a3 755b76}${color}
-${goto 32}CPU1: ${font Ubuntu:style=Bold:size=8}${color1}${cpu cpu1}%${color}${font} ${alignr}${color1}${cpugraph cpu1 12,60 9f76a3 755b76}${color}
-${goto 32}CPU2: ${font Ubuntu:style=Bold:size=8}${color1}${cpu cpu2}%${color}${font} ${alignr}${color1}${cpugraph cpu2 12,60 9f76a3 755b76}${color}
-${goto 32}CPU3: ${font Ubuntu:style=Bold:size=8}${color1}${cpu cpu3}%${color}${font} ${alignr}${color1}${cpugraph cpu3 12,60 9f76a3 755b76}${color}
-${goto 32}CPU4: ${font Ubuntu:style=Bold:size=8}${color1}${cpu cpu4}%${color}${font} ${alignr}${color1}${cpugraph cpu4 12,60 9f76a3 755b76}${color}
-${goto 32}CPU5: ${font Ubuntu:style=Bold:size=8}${color1}${cpu cpu5}%${color}${font} ${alignr}${color1}${cpugraph cpu5 12,60 9f76a3 755b76}${color}
-${goto 32}CPU6: ${font Ubuntu:style=Bold:size=8}${color1}${cpu cpu6}%${color}${font} ${alignr}${color1}${cpugraph cpu6 12,60 9f76a3 755b76}${color}
-${goto 32}CPU7: ${font Ubuntu:style=Bold:size=8}${color1}${cpu cpu7}%${color}${font} ${alignr}${color1}${cpugraph cpu7 12,60 9f76a3 755b76}${color}
-${goto 32}CPU8: ${font Ubuntu:style=Bold:size=8}${color1}${cpu cpu8}%${color}${font} ${alignr}${color1}${cpugraph cpu8 12,60 9f76a3 755b76}${color}
+#${goto 32}CPU: ${font Ubuntu:style=Bold:size=8}${color1}${cpu cpu0}%${color}${font} ${alignr}${color1}${cpugraph cpu0 12,60 {color3} {color2}}${color}
+${goto 32}CPU1: ${font Ubuntu:style=Bold:size=8}${color1}${cpu cpu1}%${color}${font} ${alignr}${color1}${cpugraph cpu1 12,60 {color3} {color2}}${color}
+${goto 32}CPU2: ${font Ubuntu:style=Bold:size=8}${color1}${cpu cpu2}%${color}${font} ${alignr}${color1}${cpugraph cpu2 12,60 {color3} {color2}}${color}
+${goto 32}CPU3: ${font Ubuntu:style=Bold:size=8}${color1}${cpu cpu3}%${color}${font} ${alignr}${color1}${cpugraph cpu3 12,60 {color3} {color2}}${color}
+${goto 32}CPU4: ${font Ubuntu:style=Bold:size=8}${color1}${cpu cpu4}%${color}${font} ${alignr}${color1}${cpugraph cpu4 12,60 {color3} {color2}}${color}
+${goto 32}CPU5: ${font Ubuntu:style=Bold:size=8}${color1}${cpu cpu5}%${color}${font} ${alignr}${color1}${cpugraph cpu5 12,60 {color3} {color2}}${color}
+${goto 32}CPU6: ${font Ubuntu:style=Bold:size=8}${color1}${cpu cpu6}%${color}${font} ${alignr}${color1}${cpugraph cpu6 12,60 {color3} {color2}}${color}
+${goto 32}CPU7: ${font Ubuntu:style=Bold:size=8}${color1}${cpu cpu7}%${color}${font} ${alignr}${color1}${cpugraph cpu7 12,60 {color3} {color2}}${color}
+${goto 32}CPU8: ${font Ubuntu:style=Bold:size=8}${color1}${cpu cpu8}%${color}${font} ${alignr}${color1}${cpugraph cpu8 12,60 {color3} {color2}}${color}
 ${goto 32}Temp: ${font Ubuntu:style=Bold:size=8}${color1}${execi 10 sensors |grep Package |cut -c17-23}${color}${font}
 ${goto 32}Freq: ${font Ubuntu:style=Bold:size=8}${color1}${freq_g 1} Ghz${color}${font}
 # |--MEM
@@ -102,7 +103,7 @@ ${offset 25}${font Ubuntu:style=Bold:size=8}${color}Home
 ${offset 29}${font Ubuntu:size=8:style=Regular}${color}Size: ${color1}${fs_size /home}${color}
 ${offset 29}${font Ubuntu:size=8:style=Regular}${color}Used: ${color1}${fs_used /home}${color}
 ${offset 29}${font Ubuntu:size=8:style=Regular}${color}Pct: ${color1}${fs_used_perc /home}%${color}
-${alignr}${diskiograph 15,150 75507B 755b76}
+${alignr}${diskiograph 15,150 {color3} {color2}}
 ###############
 # - NETWORK - #
 ###############
@@ -111,10 +112,10 @@ ${voffset 5}${font Ubuntu:style=Bold:size=8}${color2}NETWORK ${stippled_hr}${col
 ${if_up wlan0}
 ${voffset -5}${color0}${font Webdings:size=17}”${font}${color}${goto 32}${voffset -5}Up: ${font Ubuntu:style=Bold:size=8}${color1}${upspeed wlan0}${color}${font}
 ${goto 32}Total: ${font Ubuntu:style=Bold:size=8}${color1}${totalup wlan0}${color}${font}
-${alignr}${color1}${upspeedgraph wlan0 15,150 9f76a3 755b76}${color}
+${alignr}${color1}${upspeedgraph wlan0 15,150 {color3} {color2}}${color}
 ${voffset 2}${color0}${font Webdings:size=17}“${font}${color}${goto 32}${voffset -5}Down: ${font Ubuntu:style=Bold:size=8}${color1}${downspeed wlan0}${color}${font}
 ${goto 32}Total: ${font Ubuntu:style=Bold:size=8}${color1}${totaldown wlan0}${color}${font}
-${alignr}${color1}${downspeedgraph wlan0 15,150 9f76a3 755b76}${color}
+${alignr}${color1}${downspeedgraph wlan0 15,150 {color3} {color2}}${color}
 ${voffset 2}${color0}${font Webdings:size=16}¬${font}${color}${goto 32}${voffset -2}${font Ubuntu:style=Regular:size=8}Local IP: ${alignr}${color1}${addr wlan0}${color}${font}
 ${goto 32}${font Ubuntu:style=Regular:size=8}Gateway: ${alignr}${color1}${execi 60 ~/.conky/gateway}${color}${font}
 ${goto 32}${font Ubuntu:style=Regular:size=8}Public IP: ${alignr}${color1}${execpi 60 ~/.conky/public-ip}${color}${font}
@@ -123,10 +124,10 @@ ${goto 32}${font Ubuntu:style=Regular:size=8}Location: ${alignr}${color1}${execi
 ${else}${if_up bridge1}
 ${voffset -5}${color0}${font Webdings:size=17}”${font}${color}${goto 32}${voffset -5}Up: ${font Ubuntu:style=Bold:size=8}${color1}${upspeed bridge1}${color}${font}
 ${goto 32}Total: ${font Ubuntu:style=Bold:size=8}${color1}${totalup bridge1}${color}${font}
-${alignr}${color1}${upspeedgraph bridge1 15,150 9f76a3 755b76}${color}
+${alignr}${color1}${upspeedgraph bridge1 15,150 {color3} {color2}}${color}
 ${voffset 2}${color0}${font Webdings:size=17}“${font}${color}${goto 32}${voffset -5}Down: ${font Ubuntu:style=Bold:size=8}${color1}${downspeed bridge1}${color}${font}
 ${goto 32}Total: ${font Ubuntu:style=Bold:size=8}${color1}${totaldown bridge1}${color}${font}
-${alignr}${color1}${downspeedgraph bridge1 15,150 9f76a3 755b76}${color}
+${alignr}${color1}${downspeedgraph bridge1 15,150 {color3} {color2}}${color}
 ${voffset 2}${color0}${font Webdings:size=16}¬${font}${color}${goto 32}${voffset -2}${font Ubuntu:style=Regular:size=8}Local IP: ${alignr}${color1}${addr bridge1}${color}${font}
 ${goto 32}${font Ubuntu:style=Regular:size=8}Gateway: ${alignr}${color1}${execi 60 ~/.conky/gateway}${color}${font}
 ${goto 32}${font Ubuntu:style=Regular:size=8}Public IP: ${alignr}${color1}${execpi 60 ~/.conky/public-ip}${color}${font}

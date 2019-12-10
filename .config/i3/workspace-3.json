@@ -4,16 +4,16 @@
     "layout": "splith",
     "percent": null,
     "rect": {
-       "height": 1051,
-       "width": 1411,
-       "x": 2151,
+       "height": 1049,
+       "width": 1409,
+       "x": 212,
        "y": 29
     },
     "type": "floating_con",
     "nodes": [
         {
             "border": "pixel",
-            "current_border_width": 3,
+            "current_border_width": 2,
             "floating": "user_on",
             "geometry": {
                "height": 1045,
@@ -24,8 +24,8 @@
             "percent": 1,
             "swallows": [
                {
-                "class": "^Thunderbird$",
-                "instance": "^Mail$"
+               "class": "^Thunderbird$",
+               "instance": "^Mail$"
                }
             ],
             "type": "con"
