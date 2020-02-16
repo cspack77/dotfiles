@@ -4,10 +4,10 @@ rofi.lines:                          15
 rofi.columns:                        1
 !rofi.font:                           roboto mono 10
 rofi.font:                           Hack Regular 13
-rofi.color-normal:                   #070C0D, #fafffe, #070C0D, #648793, #fafffe
+rofi.color-normal:                   #070C0D, #fafffe, #070C0D, #739840, #fafffe
 rofi.color-urgent:                   #070C0D, #d6b48d, #22231D, #d6b48d, #fafffe
 rofi.color-active:                   #070C0D, #88c2bf, #070C0D, #88c2bf, #070C0D
-rofi.color-window:                   #070C0D, #648793, #455d65
+rofi.color-window:                   #070C0D, #739840, #4f682c
 rofi.bw:                             5
 rofi.location:                       0
 rofi.padding:                        5

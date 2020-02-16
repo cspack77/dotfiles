@@ -72,7 +72,7 @@ modules-center = xwindow
 modules-right = updates volume-laptop pavolume weather date
 #modules-right = nvidia_info updates volume weather date
 
-tray-position = ${env:SYSTRAY}
+tray-position = ${env:SYSTRAY:none}
 tray-padding = 2
 tray-scale = 1.0
 ;tray-transparent = true
@@ -232,7 +232,6 @@ ws-icon-4 = 5;
 ws-icon-5 = 6;
 ws-icon-6 = 7;
 ws-icon-7 = 8;
-ws-icon-8 = 9;
 ws-icon-default = 
 
 ; Available tags:

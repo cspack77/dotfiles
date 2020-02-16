@@ -335,12 +335,11 @@ assign [class="firefox"] $workspace1
 #assign [class="Thunderbird"] $workspace3
 #assign [class="chatty-Chatty"] $workspace6
 #assign [class="Hexchat"] $workspace6
-assign [class="Kodi"] $workspace10
+#assign [class="Kodi"] $workspace10
 assign [class="Lutris"] $workspace5
 assign [class="Steam"] $workspace6
 
 for_window [title="Streamlink Twitch GUI"] floating enable
-
 for_window [class="Google-chrome"] floating enable
 for_window [class="Chromium"] floating enable
 for_window [class="firefox"] floating enable
@@ -348,7 +347,6 @@ for_window [class="Thunderbird"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="smplayer"] floating enable
-#for_window [class="Kodi"] floating enable border none
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Pwsafe"] floating enable
 for_window [class="Galculator"] floating enable
@@ -358,7 +356,6 @@ for_window [class="Vmplayer"] floating enable
 for_window [class="Virt-manager"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Adl"] floating enable
-#for_window [class="Steam"] floating enable
 for_window [title="Steam - Self Updater"] floating enable
 for_window [class="looking-glass-client"] floating enable
 for_window [class="avidemux3_qt5"] floating enable
@@ -367,6 +364,7 @@ for_window [class="Lutris"] floating enable
 for_window [instance="battle.net.exe"] floating enable
 for_window [instance="twitchui.exe"] floating enable
 for_window [instance="epicgameslauncher.exe"] floating enable
+for_window [class="RazerGenie"] floating enable
 
 for_window [class="Conky"] border none
 

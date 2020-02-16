@@ -11,7 +11,8 @@ cup () {
   #CURR_KERNEL=$(pacman -Ss --dbpath /tmp/checkup-db-ted/ linux-lts |grep "core\/linux-lts " | cut -d " " -f 2)
   #printf "\nLatest LTS kernel: $CURR_KERNEL\n"
   # Mainline kernel
-  CURR_KERNEL=$(pacman -Ss --dbpath /tmp/checkup-db-ted/ linux |grep "core\/linux " | cut -d " " -f 2)
+  #CURR_KERNEL=$(pacman -Ss --dbpath /tmp/checkup-db-ted/ linux |grep "core\/linux " | cut -d " " -f 2)
+  CURR_KERNEL=$(pacman -Ss --dbpath /tmp/checkup-db-1000/ linux |grep "core\/linux " | cut -d " " -f 2)
   printf "\nLatest kernel : $CURR_KERNEL\n"
 
   printf "Running kernel: $(uname -r)\n"
